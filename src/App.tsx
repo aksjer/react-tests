@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './test3/navbar';
+import List from './todo/list';
+export default function App() {
+  const [todos, setTodos] = useState(['abc', 'me', 'you']);
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+  const addTodo = (todo: string) => setTodos([...todos, todo]);
+
+  const deleteTodo = (todo: string) => setTodos(todos.filter(t => t !== todo));
+
+  const EmptyTodos = () => {
+    return todos.length ? (
+      <List todos={todos} deleteTodo={deleteTodo} />
+    ) : (
+      <div>Nothing to do...</div>
     );
-  }
-}
+  };
 
-export default App;
+  const Allo = {
+    Toto: function() {
+      return <div>I'm Toto :)</div>;
+    }
+  };
+
+  return (
+    <>
+      {/* <Create add={addTodo} />
+      <EmptyTodos />
+      <MouseTracker /> */}
+      {/* <PlanList /> */}
+      {/* <ParentContainer
+        render={() => <div>hello, i'm new renderer method</div>}
+        // render={() => <ChildCpt>hello, i'm new renderer method</ChildCpt>}
+      >
+        <div>i'm child ?</div>
+        <div>i'm second child ?</div>
+      </ParentContainer>
+      <Allo.Toto /> */}
+      <Navbar />
+    </>
+  );
+}
