@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Navbar from './test3/navbar';
+import { useTimer } from './test5/useTimer';
+import Test6 from './test6/test6';
 import List from './todo/list';
 export default function App() {
   const [todos, setTodos] = useState(['abc', 'me', 'you']);
@@ -23,6 +24,9 @@ export default function App() {
     }
   };
 
+  const [counter, setCounter] = useState(0);
+  // const { time, start, pause, reset } = useTimer();
+
   return (
     <>
       {/* <Create add={addTodo} />
@@ -37,7 +41,18 @@ export default function App() {
         <div>i'm second child ?</div>
       </ParentContainer>
       <Allo.Toto /> */}
-      <Navbar />
+      {/* <Navbar /> */}
+      {/* <MyReducer /> */}
+
+      {/* <div>{counter}</div>
+      <button onClick={() => setCounter(counter + 1)}>add</button> */}
+      {/* <div>
+        <div>{time}</div>
+        <button onClick={start}>start</button>
+        <button onClick={pause}>pause</button>
+        <button onClick={reset}>reset</button>
+      </div> */}
+      <Test6 />
     </>
   );
 }
